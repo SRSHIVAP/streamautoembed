@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Embed Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        button {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .output {
+            margin-top: 20px;
+            background: #f9f9f9;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Video Embed Generator</h1>
+    <input type="text" id="videoLink" placeholder="Enter video stream link here...">
+    <button onclick="generateEmbedCode()">Generate Embed Code</button>
+    <div class="output" id="embedOutput"></div>
+</div>
+
+<script>
+    function generateEmbedCode() {
+        const videoLink = document.getElementById("videoLink").value;
+        const embedOutput = document.getElementById("embedOutput");
+        
+        if (videoLink) {
+            const embedCode = `<iframe width="560" height="315" src="${videoLink}" frameborder="0" allowfullscreen></iframe>`;
+            embedOutput.textContent = embedCode;
+        } else {
+            embedOutput.textContent = "Please enter a valid video link.";
+        }
+    }
+</script>
+
+</body>
+</html>
